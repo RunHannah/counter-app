@@ -1,9 +1,22 @@
 import React, { Component } from "react";
 
-// refactored and removed local state, and rely on props from parent component
 class Counter extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // Ajax call and get new data from the server
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter -Unmount");
+  }
+
   render() {
     // console.log("props", this.props);
+    console.log("Counter Rendered");
+
     return (
       <div>
         {this.props.children}
